@@ -3,7 +3,7 @@ import dash_core_components as dcc
 
 
 def Header(app):
-    return html.Div([get_header(app), html.Br([]), get_menu()])
+    return html.Div([get_header(app), get_menu()])
 
 
 def get_header(app):
@@ -11,9 +11,13 @@ def get_header(app):
         [
             html.Div(
                 [
-                    html.Img(
+                   html.A(
+                        html.Img(id="wia-link",
                         src=app.get_asset_url("WIA_logo.jpg"),
                         className="logo",
+                        )
+                    ,href="https://womeninanalytics.com"
+                    ,style={"transition-duration":"1s"}
                     ),
                 ],
                 className="row",
@@ -21,7 +25,7 @@ def get_header(app):
             html.Div(
                 [
                     html.Div(
-                        [html.H5("Women in Analytics 2020 Conference: Q3 Attendee Report")],
+                        [html.H5("Women in Analytics 2020 Conference: Q3 Report")],
                         className="seven columns main-title",
                     ),
                     html.Div(
@@ -39,10 +43,8 @@ def get_header(app):
                 style={"padding-left": "0"},
             ),
             html.Div(
-                [
-                    html.H4("3 Days | 1200+ Attendees | 47 Speakers")
-                ],
-                className="statbanner"
+                [html.H4("3 Days | 1200+ Attendees | 47 Speakers")],
+                className="statbanner",
             ),
         ],
         className="row",
@@ -54,27 +56,32 @@ def get_menu():
     menu = html.Div(
         [
             dcc.Link(
-                "Titles",
-                href="/dash-financial-report/titles",
+                "Overview",
+                href="/venv/overview",
                 className="tab first",
             ),
             dcc.Link(
+                "Titles",
+                href="/venv/titles",
+                className="tab",
+            ),
+            dcc.Link(
                 "Companies",
-                href="/dash-financial-report/companies",
+                href="/venv/companies",
                 className="tab",
             ),
             dcc.Link(
                 "Experience Levels",
-                href="/dash-financial-report/experience-levels",
+                href="/venv/experiencelevels",
                 className="tab",
             ),
             dcc.Link(
-                "Industries", href="/dash-financial-report/industries",
+                "Industries", href="/venv/industries",
                 className="tab"
             ),
             dcc.Link(
                 "Location",
-                href="/dash-financial-report/location",
+                href="/venv/location",
                 className="tab",
             ),
         ],
